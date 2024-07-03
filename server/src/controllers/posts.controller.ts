@@ -1,4 +1,6 @@
 import { Post } from "../models/post";
+//import {} from "pdf-master";
+const pdfMaster=require('pdf-master');
 
 export class PostsController{
     static async getAll(req:any, res:any){
@@ -63,5 +65,18 @@ export class PostsController{
             post.save();
         }
         res.json(post);
+    }
+
+    static async pdf(req:any, res:any){
+        const post = await Post.findById(req.params.id);
+        console.log(post);
+       
+        //pdfMa
+        const pdf=await pdfMaster.generatePdf('./src/pdf.hbs',{post:post?.toObject()});
+
+        res.contentType("application/pdf");
+        res.status(200).send(pdf);
+      
+        
     }
 }

@@ -7,6 +7,8 @@ import { corsHeaders } from "./middlewares/cors.middleware";
 
 const app:Application=express();
 
+
+
 // mongodb://localhost:27017/
 app.use(corsHeaders);
 

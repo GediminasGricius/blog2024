@@ -11,6 +11,7 @@ postsRouter.put('/:id', PostsController.update);
 postsRouter.delete('/:id',PostsController.delete);
 
 postsRouter.post('/:id/addComment', PostsController.addComment);
+postsRouter.get('/pdf/:id', PostsController.pdf)
 
 
 export {postsRouter};
